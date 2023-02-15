@@ -3,44 +3,57 @@ package com.example.mancityapp.main
 import android.media.Image
 import android.view.Menu
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.unit.dp
 import com.example.mancityapp.R
+import com.example.mancityapp.ui.theme.Pink40
+import com.example.mancityapp.ui.theme.SkyBlue
+import com.example.mancityapp.ui.theme.cityzenDarkBlue
 
 
 @Composable
 fun MainScreen(){
-    Column(modifier = Modifier.fillMaxSize()) {
-        Row(modifier = Modifier.fillMaxSize()) {
-            Image(painter = painterResource(id = R.drawable.city), contentDescription = "",Modifier.size(50.dp,50.dp))
-            
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(color = SkyBlue)) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Image(painter = painterResource(id = R.drawable.city), contentDescription = "",
+                Modifier
+                    .size(80.dp, 80.dp)
+                    .padding(16.dp))
+
             Spacer(Modifier.weight(1f, true))
-            
-            Text("Your menu items here")
-            
+
             Spacer(Modifier.weight(1f, true))
             Row(
-                modifier = Modifier,
+                modifier = Modifier.padding(16.dp),
                 horizontalArrangement = Arrangement.End
             ) {
-                Text(text = "Menu")
-
-
+                Text(text = "Menu", modifier = Modifier.align(Alignment.CenterVertically), color = cityzenDarkBlue)
                 IconButton(
                     onClick = { /*TODO*/ }
                 ) {
@@ -48,7 +61,29 @@ fun MainScreen(){
                 }
             }
         }
+        Body()
     }
-
-
 }
+
+@Composable
+fun Body(text : String ?= null , image : Int ?= null){
+    Column(modifier = Modifier.padding(top = 16.dp)) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(350.dp),
+                shape = RectangleShape
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.mahrez),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
+        Text(text = "Mahrez strike secures crucial three points at \n Chelsea",Modifier.padding(8.dp), style = MaterialTheme.typography.titleMedium, color = cityzenDarkBlue)
+    }
+}
+
+
