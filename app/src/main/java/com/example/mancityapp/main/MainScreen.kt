@@ -28,10 +28,12 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.mancityapp.R
 import com.example.mancityapp.ui.theme.Pink40
 import com.example.mancityapp.ui.theme.SkyBlue
+import com.example.mancityapp.ui.theme.Typography
 import com.example.mancityapp.ui.theme.cityzenDarkBlue
 
 
@@ -44,7 +46,8 @@ fun MainScreen(){
             Image(painter = painterResource(id = R.drawable.city), contentDescription = "",
                 Modifier
                     .size(80.dp, 80.dp)
-                    .padding(16.dp))
+                    .padding(16.dp)
+            )
 
             Spacer(Modifier.weight(1f, true))
 
@@ -62,6 +65,7 @@ fun MainScreen(){
             }
         }
         Body()
+        Footer()
     }
 }
 
@@ -82,7 +86,38 @@ fun Body(text : String ?= null , image : Int ?= null){
                 contentScale = ContentScale.Crop
             )
         }
-        Text(text = "Mahrez strike secures crucial three points at \n Chelsea",Modifier.padding(8.dp), style = MaterialTheme.typography.titleMedium, color = cityzenDarkBlue)
+        Text(text = "Mahrez strike secures crucial three points at \n Chelsea",Modifier.padding(8.dp), style = Typography.bodyLarge, color = cityzenDarkBlue)
+    }
+}
+
+@Composable
+fun Footer(){
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .height(300.dp)) {
+        Text("Next Fixture",Modifier.padding(8.dp))
+
+        Text(text = "Sun 08 Jan", textAlign = TextAlign.Center)
+
+        Text(text = "FA Cup",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+
+        Row(Modifier.fillMaxWidth()){
+            Image(painter = painterResource(id = R.drawable.city), contentDescription = "",
+                Modifier
+                    .size(80.dp, 80.dp)
+                    .padding(16.dp),
+                Alignment.CenterStart
+            )
+            Column() {
+                Text(text = "16:30",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+
+                Text(text = "FA Cup",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+            }
+
+        }
+
+
+
     }
 }
 
