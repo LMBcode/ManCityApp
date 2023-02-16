@@ -22,7 +22,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = SkyBlue,
     secondary = PurpleGrey40,
     tertiary = Pink40
 
@@ -54,11 +54,13 @@ fun ManCityAppTheme(
         else -> LightColorScheme
     }
     val view = LocalView.current
+    val systemUiController = rememberSystemUiController()
     if (!view.isInEditMode) {
         SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            systemUiController.setSystemBarsColor(
+                color = SkyBlue,
+                darkIcons = false
+            )
         }
     }
 

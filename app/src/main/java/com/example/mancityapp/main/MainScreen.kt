@@ -32,9 +32,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.mancityapp.R
 import com.example.mancityapp.ui.theme.Pink40
+import com.example.mancityapp.ui.theme.Sf
 import com.example.mancityapp.ui.theme.SkyBlue
 import com.example.mancityapp.ui.theme.Typography
 import com.example.mancityapp.ui.theme.cityzenDarkBlue
+import com.example.mancityapp.ui.theme.lightStoneGray
 
 
 @Composable
@@ -94,30 +96,53 @@ fun Body(text : String ?= null , image : Int ?= null){
 fun Footer(){
     Column(modifier = Modifier
         .fillMaxWidth()
-        .height(300.dp)) {
-        Text("Next Fixture",Modifier.padding(8.dp))
+        .height(300.dp)
+        .background(color = lightStoneGray)
+    ) {
 
-        Text(text = "Sun 08 Jan", textAlign = TextAlign.Center)
+        Text("Next Fixture", Modifier.padding(16.dp))
 
-        Text(text = "FA Cup",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
 
-        Row(Modifier.fillMaxWidth()){
-            Image(painter = painterResource(id = R.drawable.city), contentDescription = "",
-                Modifier
-                    .size(80.dp, 80.dp)
-                    .padding(16.dp),
-                Alignment.CenterStart
-            )
-            Column() {
-                Text(text = "16:30",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+        ) {
 
-                Text(text = "FA Cup",Modifier.padding(top = 8.dp),textAlign = TextAlign.Center)
+            Text(text = "Sun 08 Jan", textAlign = TextAlign.Center, color = cityzenDarkBlue, style = Typography.titleMedium)
+
+            Text(text = "FA Cup", Modifier.padding(top = 8.dp), textAlign = TextAlign.Center)
+
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                Column() {
+                    Image(
+                        painter = painterResource(id = R.drawable.city), contentDescription = "",
+                        Modifier
+                            .size(60.dp, 60.dp)
+                            .padding(top = 8.dp, end = 12.dp),
+                        Alignment.CenterStart
+                    )
+                    Text(text = "Man City", Modifier.padding(top = 8.dp), textAlign = TextAlign.Center, style = Typography.titleSmall)
+                }
+                Column() {
+                    Text(text = "16:30", Modifier.padding(top = 8.dp), textAlign = TextAlign.Center, color = cityzenDarkBlue, style = Typography.titleMedium)
+
+                    Text(text = "GMT", Modifier.padding(top = 8.dp), textAlign = TextAlign.Center)
+                }
+                Column() {
+                    Image(
+                        painter = painterResource(id = R.drawable.chelsi), contentDescription = "",
+                        Modifier
+                            .size(60.dp, 60.dp)
+                            .padding(top = 8.dp, start = 12.dp),
+                        Alignment.CenterStart
+                    )
+
+                    Text(text = "Chelsea", Modifier.padding(top = 8.dp,start = 12.dp), textAlign = TextAlign.Center,style = Typography.titleSmall)
+                }
+
             }
-
         }
-
-
-
     }
 }
 
