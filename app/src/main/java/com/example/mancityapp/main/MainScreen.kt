@@ -5,6 +5,8 @@ import android.view.Menu
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Arrangement.End
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -73,22 +76,43 @@ fun MainScreen(){
 
 @Composable
 fun Body(text : String ?= null , image : Int ?= null){
-    Column(modifier = Modifier.padding(top = 16.dp)) {
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(350.dp),
-                shape = RectangleShape
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.mahrez),
-                contentDescription = null,
+    Box(
+        modifier = Modifier
+            .padding(top = 16.dp)
+            .height(550.dp)
+    ) {
+        Column(modifier = Modifier.padding(top = 16.dp)) {
+            Card(
                 modifier = Modifier
-                    .fillMaxSize(),
-                contentScale = ContentScale.Crop
+                    .fillMaxWidth()
+                    .height(350.dp),
+                shape = RectangleShape
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.mahrez),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+            }
+            Text(
+                text = "Mahrez strike secures crucial three points at Chelsea",
+                modifier = Modifier.padding(16.dp),
+                style = Typography.headlineMedium,
+                color = cityzenDarkBlue
             )
+
+                Text(
+                    text = "Men's team",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                        .wrapContentSize(align = Alignment.BottomEnd),
+                    style = Typography.titleSmall,
+                    color = cityzenDarkBlue
+                )
         }
-        Text(text = "Mahrez strike secures crucial three points at \n Chelsea",Modifier.padding(8.dp), style = Typography.bodyLarge, color = cityzenDarkBlue)
     }
 }
 
@@ -96,7 +120,7 @@ fun Body(text : String ?= null , image : Int ?= null){
 fun Footer(){
     Column(modifier = Modifier
         .fillMaxWidth()
-        .height(300.dp)
+        .height(400.dp)
         .background(color = lightStoneGray)
     ) {
 

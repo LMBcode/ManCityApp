@@ -30,8 +30,8 @@ val Typography = Typography(
     ),
     headlineLarge = TextStyle(
         fontFamily = Sf,
-        fontWeight = FontWeight.Bold,
-        fontSize = 28.sp,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp,
         lineHeight = 36.sp
     ),
     titleMedium =TextStyle(
@@ -44,6 +44,18 @@ val Typography = Typography(
         fontFamily = Sf,
         fontWeight = FontWeight.Light,
         fontSize = 12.sp,
+        lineHeight = 36.sp
+    ),
+    titleLarge = TextStyle(
+        fontFamily = Sf,
+        fontWeight = FontWeight.Light,
+        fontSize = 50.sp,
+        lineHeight = 36.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Light,
+        fontSize = 30.sp,
         lineHeight = 36.sp
     )
 )
