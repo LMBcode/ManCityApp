@@ -15,6 +15,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
+
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
@@ -54,13 +55,15 @@ fun ManCityAppTheme(
         else -> LightColorScheme
     }
     val view = LocalView.current
-    val systemUiController = rememberSystemUiController()
+  //  val systemUiController = rememberSystemUiController()
     if (!view.isInEditMode) {
         SideEffect {
-            systemUiController.setSystemBarsColor(
+           /* systemUiController.setSystemBarsColor(
                 color = SkyBlue,
                 darkIcons = false
             )
+
+            */
         }
     }
 
