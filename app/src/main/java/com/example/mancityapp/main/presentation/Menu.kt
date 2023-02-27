@@ -36,7 +36,7 @@ import com.example.mancityapp.ui.theme.SkyBlue
 @Composable
 fun MenuScreen() {
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(SkyBlue)) {
         Menu(onClose = {})
         Column(
             modifier = Modifier.fillMaxSize(),
