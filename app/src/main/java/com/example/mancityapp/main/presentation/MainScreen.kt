@@ -28,7 +28,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.example.mancityapp.R
+import com.example.mancityapp.navigation.SetupNavigation
 import com.example.mancityapp.ui.theme.ManCityAppTheme
 import com.example.mancityapp.ui.theme.SkyBlue
 import com.example.mancityapp.ui.theme.Typography
@@ -38,6 +40,7 @@ import com.example.mancityapp.ui.theme.lightStoneGray
 
 @Composable
 fun MainScreen(){
+    val navController = rememberNavController()
     Column(modifier = Modifier
         .fillMaxSize()
         .background(color = SkyBlue)) {
@@ -57,7 +60,7 @@ fun MainScreen(){
             ) {
                 Text(text = "Menu", modifier = Modifier.align(Alignment.CenterVertically), color = cityzenDarkBlue)
                 IconButton(
-                    onClick = { /*TODO*/ }
+                    onClick = { navController.navigate("Menu") }
                 ) {
                     Icon(imageVector = Icons.Default.Search, contentDescription = "")
                 }

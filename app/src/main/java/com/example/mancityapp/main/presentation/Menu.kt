@@ -1,7 +1,10 @@
 package com.example.mancityapp.main.presentation
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -78,28 +81,18 @@ fun Menu(onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             item {
-                Text("Home", fontSize = 30.sp)
+                Text("Home", fontSize = 30.sp, modifier = Modifier.clickable {
+                    Log.d(TAG,"Home Clicked")
+                })
             }
             item {
-                Text("News", fontSize = 30.sp)
-            }
-            item {
-                Text("Videos", fontSize = 30.sp)
-            }
-            item {
-                Text("City+", fontSize = 30.sp)
-            }
-            item {
-                Text("Fixtures", fontSize = 30.sp)
-            }
-            item {
-                Text("Shop", fontSize = 30.sp)
+                Text("Teams", fontSize = 30.sp)
             }
             item {
                 Text("Players", fontSize = 30.sp)
             }
             item {
-                Text("Club", fontSize = 30.sp)
+                Text("Shop", fontSize = 30.sp)
             }
         }
     }

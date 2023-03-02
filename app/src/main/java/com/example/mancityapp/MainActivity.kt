@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mancityapp.main.presentation.MainScreen
+import com.example.mancityapp.main.presentation.MainScreenView
 import com.example.mancityapp.main.presentation.MenuScreen
 import com.example.mancityapp.ui.theme.ManCityAppTheme
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MenuScreen()
+                    MainScreenView()
                 }
             }
         }
